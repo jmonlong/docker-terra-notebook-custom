@@ -18,5 +18,14 @@ RUN wget --no-check-certificate --quiet https://github.com/vgteam/vg/releases/do
 
 ENV PATH $PATH:/bin
 
+## GNU time
+WORKDIR /build
+RUN wget https://ftp.gnu.org/gnu/time/time-1.9.tar.gz && \
+        tar -xzvf time-1.9.tar.gz && \
+        cd time-1.9 && \
+        ./configure && \
+        make && \
+        make install
+
 WORKDIR /home/jupyter
 USER $USER
