@@ -4,6 +4,8 @@ USER root
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true
 
+RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
+
 RUN apt-get update && apt-get install -yq --no-install-recommends \
         less \
         bcftools \
@@ -26,6 +28,9 @@ RUN wget https://ftp.gnu.org/gnu/time/time-1.9.tar.gz && \
         ./configure && \
         make && \
         make install
+
+## R packages
+RUN Rscript -e "BiocManager::install(c('AnVIL', 'jmonlong/sveval'))"
 
 WORKDIR /home/jupyter
 USER $USER

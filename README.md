@@ -4,6 +4,9 @@ This image extends the [terra-jupyter-r](https://github.com/DataBiosphere/terra-
 - samtools
 - vg
 - GNU time (use with `env time` or `/usr/local/bin/time`)
+- R packages:
+    - [sveval](https://github.com/jmonlong/sveval) and its dependencies (inc. dplyr, ggplot2, BioC GenomicsRanges, VariantAnnotation)
+    - AnVIL
 
 ## Build
 
@@ -22,8 +25,8 @@ Then open [http://localhost:8000/notebooks](http://localhost:8000/notebooks).
 ## Push to DockerHub
 
 ```sh
-docker tag jmonlong-terra-notebook-custom jmonlong/terra-notebook-custom:0.0.2
-docker push jmonlong/terra-notebook-custom:0.0.2
+docker tag jmonlong-terra-notebook-custom jmonlong/terra-notebook-custom:0.0.3
+docker push jmonlong/terra-notebook-custom:0.0.3
 ```
 
 Images at [jmonlong/terra-noteboook-custom](https://hub.docker.com/repository/docker/jmonlong/terra-noteboook-custom/general).
